@@ -21,9 +21,53 @@ the Claude CLI.
 
 ### Prerequisites
 
-- **Node.js** v18 or later — [download at nodejs.org](https://nodejs.org)
+- **Node.js** v18 or later
 - **npm** v9 or later (bundled with Node.js)
 - **Git** — [download at git-scm.com](https://git-scm.com)
+
+#### Mac users — managing Node with nvm
+
+On a Mac, the recommended way to install and manage Node.js is with
+[nvm](https://github.com/nvm-sh/nvm) (Node Version Manager). It lets you
+switch between Node versions per project and avoids permission issues that
+come with a system-level Node install.
+
+**Step 1 — install Homebrew** (if you don't have it):
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**Step 2 — install nvm via Homebrew:**
+
+```bash
+brew install nvm
+```
+
+Then follow the post-install instructions Homebrew prints — they add nvm to
+your shell profile. For most users that means adding these lines to
+`~/.zshrc` (or `~/.bash_profile`):
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+```
+
+Reload your shell: `source ~/.zshrc`
+
+**Step 3 — install and use Node v20:**
+
+```bash
+nvm install 20
+nvm use 20
+nvm alias default 20   # make v20 the default for new terminal windows
+```
+
+Verify: `node --version` should print `v20.x.x`.
+
+> **Tip:** You can add a `.nvmrc` file to any project containing just `20`
+> and run `nvm use` (no arguments) to automatically switch to the right
+> version.
 
 ### 1. Clone the repository
 
